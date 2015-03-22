@@ -42,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
     public void startSecondActivity(View view) {
 
         Intent secondActivity = new Intent(this, SecondActivity.class);
+        secondActivity.putExtra("number", 100);
         startActivity(secondActivity);
     }
 }

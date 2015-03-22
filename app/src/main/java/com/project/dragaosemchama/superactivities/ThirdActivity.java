@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.Random;
 
 
 public class ThirdActivity extends ActionBarActivity {
@@ -14,6 +17,18 @@ public class ThirdActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+        if (new Random().nextBoolean()) {
+
+            Intent intent = getIntent();
+            byte[] bytearray = intent.getByteArrayExtra("bytearray");
+            TextView textView = (TextView) findViewById(R.id.textView);
+            textView.setTextSize(23);
+            String surprise = "";
+            for(byte element: bytearray)
+                surprise += Byte.toString(element) + " ";
+            textView.setText(surprise);
+        }
     }
 
 
